@@ -22,7 +22,8 @@ console.log(count.value) // 1
 3. 如果在ref中定义对象类型，其实Vue也是会通过转换为reactive进行深层次响应对象的。
 
 ### 响应式原理
- Vue 3 中则使用了 Proxy 来创建响应式对象。
+ES6 Proxy API 拦截get收集依赖，拦截set触发更新渲染。
+对比defineProperty： Proxy 返回的是一个新对象,我们可以操作新的对象达到目的,而 Object.defineProperty 只能遍历对象属性修改。
 
 ### computed
 计算属性，接受一个 getter 函数，返回一个只读的响应式 ref 对象。
